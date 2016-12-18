@@ -1,0 +1,55 @@
+
+{> "layouts/main" /}
+
+{<bodyContent}
+
+<h4 class="page-header">Création d'une demande <small>Étape 2/2</small></h4>
+<form method="post" action="/clients/{client.id}/edit">
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="name">Nom</label>
+      <input type="text" id="name" class="form-control" name="client[last_name]" placeholder="Nom" value="{client.last_name}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Prénom</label>
+      <input type="text" class="form-control" name="client[first_name]" placeholder="Prénom" value="{client.first_name}">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Mail</label>
+      <input type="text" class="form-control" name="client[email]" placeholder="Mail" value="{client.email}">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Téléphone</label>
+      <input type="text" class="form-control" name="client[phone]" placeholder="Téléphone" value="{client.phone}" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-12">
+      <label>Type de demande</label>
+      <select class="form-control" name="client[request_type_id]">
+        <option value="">:: Selectioner un type de demande</option>
+        {#requests_type}<option value="{id}">{name}</option>{/requests_type}
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <label>Demande</label>
+      <textarea class="form-control" name="client[request_text]" rows="8" cols="40" placeholder="Demande"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <button type="submit" class="btn btn-primary pull-right">Valider</button>
+    </div>
+  </div>
+</form>
+
+{/bodyContent}

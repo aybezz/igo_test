@@ -1,0 +1,22 @@
+{
+  "name": "igo-starter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "bcryptjs": "^2.4.0",
+    "igo": "2.1.1"
+  },
+  "devDependencies": {
+    "express-session": "^1.14.2",
+    "igo-dev": "2.1.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

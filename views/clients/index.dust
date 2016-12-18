@@ -1,0 +1,43 @@
+
+{> "layouts/main" /}
+
+{<bodyContent}
+<form method="get" action="/clients">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Numéro de téléphone" name="phone" value="{phone}">
+    <span class="input-group-btn">
+      <button class="btn btn-outline-primary" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
+</form>
+
+<div class="clearfix"></div>
+
+<hr class="my-2">
+<div class="list-group">
+  {#clients}
+
+      <h4>
+        {first_name} {last_name}
+        <small class="small-text">Historique des appelles N˚ <a href="/clients/?phone={phone}">{phone}</a></small>
+      </h4>
+
+      {#requests}
+      <a href="#" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading">{request_type.name}</h5>
+        <p class="list-group-item-text">
+          {request_text}<br>
+          <small class="small-text pull-right">Traité par <b>{agent.name}</b> le {@dateformat date="{created_at}" lang="fr" format="D dddd"/} à {@dateformat date="{created_at}" format="HH:mm:ss"/}</small>
+          <br>
+        </p>
+      </a>
+      {/requests}
+      <hr class="my-2">
+  {:else}
+    Aucun appel pour le N˚: {phone}
+  {/clients}
+</div>
+
+{/bodyContent}

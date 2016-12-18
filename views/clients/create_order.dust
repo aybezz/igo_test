@@ -1,0 +1,15 @@
+
+{> "layouts/main" /}
+
+{<bodyContent}
+
+<h4 class="page-header">Création d'une demande <small>Étape 1/2</small></h4>
+<form method="post" action="/clients/create_order_step2">
+  <div class="form-group">
+    <label>Numéro de téléphone</label>
+    <input type="text" class="form-control" name="phone" placeholder="Numéro de téléphone" value="{phone}">
+  </div>
+  <button type="submit" class="btn btn-primary pull-right">Valider</button>
+</form>
+
+{/bodyContent}

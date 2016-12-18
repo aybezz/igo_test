@@ -1,0 +1,75 @@
+
+
+@import '../bower_components/bootstrap/scss/bootstrap.scss';
+@import '../bower_components/font-awesome/scss/font-awesome.scss';
+//
+// body {
+//   padding-top: 5rem;
+// }
+//
+// .starter-template {
+//   padding: 3rem 1.5rem;
+//   text-align: center;
+// }
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.page-header{
+  margin-top:0;
+}
+.small-text {
+  display: block;
+  font-size: 10px;
+  color: #818a91;
+  margin-top: 10px;
+}
+
+.list-group-item-action {
+  // Hover state
+  @include hover-focus {
+    .list-group-item-heading, .small-text {
+      color: $list-group-active-color;
+    }
+    .small-text {
+      color: $list-group-active-text-color;
+    }
+    color: $list-group-active-text-color;
+    text-decoration: none;
+    background-color: $list-group-active-bg;
+  }
+}
