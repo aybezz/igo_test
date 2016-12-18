@@ -3,7 +3,7 @@
 
 {<bodyContent}
 
-<h2 class="page-header">Agent Auth</h2>
+<h2 class="page-header">Inscription Agent</h2>
 <form method="post" action="/register">
 
   <div class="form-group">
