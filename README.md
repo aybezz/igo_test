@@ -17,3 +17,26 @@ $ gulp
 ```
 
 Go to [localhost:3000](http://localhost:3000) and have fun.
+
+
+## Screenshots
+Page de connexion
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-1.png "Page de connexion")
+
+Formulaire de la fiche client - Étape 1/2
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-2.png "Formulaire de la fiche client - Étape 1/2")
+
+Formulaire de la fiche client - Étape 2/2
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-3.png "Formulaire de la fiche client - Étape 2/2")
+
+Listing des appels - 1
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-4.png "Listing des appels - 1")
+
+Listing des appels - 2
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-5.png "Listing des appels - 2")
+
+Listing des appels - 3
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-6.png "Listing des appels - 3")
+
+Formulaire d'inscription
+![Alt text](https://github.com/aybezz/igo_test/blob/master/screenshots/screenshot-7.png "Formulaire d'inscription")
