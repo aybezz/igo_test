@@ -10,7 +10,7 @@ $ npm install -g bower gulp-cli mocha
 ```
 To get started clone, install the required package and run the migration file `migration.js` for creating the test database `igo_test`:
 ```sh
-$ git@github.com:aybezz/igo_test.git && cd igo_test
+$ git clone git@github.com:aybezz/igo_test.git && cd igo_test
 $ npm install && bower install
 $ node migration.js
 $ gulp
