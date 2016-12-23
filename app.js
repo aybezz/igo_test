@@ -18,11 +18,7 @@ app.use(function (req, res, next) {
 
 app.run();
 
-// Migrate db
-require('igo').db.migrate(function() {
-  // Load requests type from database
-  let RequestType = require('./app/models/request_type');
-  RequestType.all(function(err, requests_type) {
-    app.locals.requests_type = requests_type;
-  });
+let RequestType = require('./app/models/request_type');
+RequestType.all(function(err, requests_type) {
+  app.locals.requests_type = requests_type;
 });
