@@ -1,10 +1,10 @@
 # Igo Web Framework Test
 
 ## Presentation
-Simple app to test Igo Web Framework for NodeJs
+Simple app to test [Igo](https://github.com/igocreate/igo) Web Framework for NodeJs
 
 ## Getting started
-Before using Igo, you need to install NodeJS (>=5.9.1) and a few modules:
+Before using [Igo](https://github.com/igocreate/igo), you need to install NodeJS (>=5.9.1) and a few modules:
 ```sh
 $ npm install -g bower gulp-cli mocha
 ```
