@@ -1,17 +1,20 @@
-var _       = require('lodash');
 var bcrypt  = require('bcryptjs');
 const Model = require('igo').Model;
+// const ClientRequest = require('./client_request');
 
 const schema = {
-  table:    'agents',
-  columns:  [
+  table: 'agents',
+  columns: [
     'id',
     'name',
     'login',
     'password',
     'created_at',
     'updated_at'
-  ]
+  ],
+  // associations: [
+  //   [ 'has_many', 'requests', ClientRequest, 'id', 'agent_id'],
+  // ]
 };
 
 class Agent {

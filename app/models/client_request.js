@@ -1,9 +1,13 @@
-async       = require("async");
-const Model = require('igo').Model;
+async             = require("async");
+const Model       = require('igo').Model;
+// var Client     = require('./client');
+const Agent       = require('./agent');
+const RequestType = require('./request_type');
+
 
 const schema = {
-  table:    'clients_requests',
-  columns:  [
+  table: 'clients_requests',
+  columns: [
     'id',
     'agent_id',
     'client_id',
@@ -11,34 +15,19 @@ const schema = {
     'request_text',
     'created_at',
     'updated_at'
-  ]
+  ],
+  associations: [
+    [ 'belongs_to', 'agent', Agent, 'agent_id', 'id'],
+    // [ 'belongs_to', 'client', Client, 'client_id', 'id'],
+    [ 'belongs_to', 'request_type', RequestType, 'request_type_id', 'id'],
+  ],
+  scopes: {
+    default: function(query) { query.includes(['request_type', 'agent']);},
+  }
 };
 
-class ClientRequest {
+const ClientRequest = function() {
 
-  static getRequestsByClient(clientId, callback) {
-    let Agent = require('./agent');
-    let RequestType = require('./request_type');
-
-    let requests_with_agent = [];
-    let query = this.where({client_id: clientId});
-    query.execute(function(error, requests) {
-      async.forEachOf(requests, function(request, key, callback) {
-        Agent.find(request.agent_id, function(error, agent){
-          requests[key].agent = agent;
-          RequestType.find(request.request_type_id, function(error, request_type){
-            requests[key].request_type = request_type;
-            callback();
-          });
-        });
-      }, function(error) {
-        // console.log('done');
-        if (error) console.error(err.message);
-        callback(error, requests);
-      });
-    });
-  }
-
-}
+};
 
 module.exports = new Model(ClientRequest, schema);

@@ -53,3 +53,4 @@ dist/
 src/
 
 .npmignore
+dbtest.js

@@ -2,7 +2,7 @@
 module.exports.index = function(req, res, next) {
   let Client = require('../models/client');
   var params = req.query.phone ? { phone: req.query.phone } : { };
-  Client.getClientRquests(params, function(err, clients) {
+  Client.where(params).list(function(err, clients) {
     res.render('clients/index', {clients, phone: req.query.phone});
   });
 };
@@ -23,12 +23,9 @@ module.exports.create_order_step2 = function(req, res) {
   }
   else {
     let Client = require('../models/client');
-    Client.search({ phone: req.body.phone }, function (error, results) {
-      if(error) throw console.log(error);
-
-      let client = results.length > 0 ? results[0] : undefined;
-      if(client === undefined)
-        res.render('clients/new', { phone: req.body.phone });
+    Client.where({ phone: req.body.phone }).limit(1).list(function(err, client){
+      if(client === null)
+        res.render('clients/new', { client: {phone: req.body.phone} });
       else res.render('clients/edit', {client});
     });
   }

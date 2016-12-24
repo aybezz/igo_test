@@ -1,13 +1,10 @@
-async       = require("async");
-var _       = require('lodash');
-const clone = require('clone');
-const Model = require('igo').Model;
-const db    = require('igo').db;
-var extend  = require('util')._extend;
+
+const Model         = require('igo').Model;
+const ClientRequest = require('./client_request');
 
 const schema = {
-  table:    'clients',
-  columns:  [
+  table: 'clients',
+  columns: [
     'id',
     'first_name',
     'last_name',
@@ -15,34 +12,17 @@ const schema = {
     'phone',
     'created_at',
     'updated_at'
-  ]
+  ],
+  associations: [
+    ['has_many', 'requests', ClientRequest, 'id', 'client_id'],
+  ],
+  scopes: {
+    default: function(query) { query.includes(['requests']);},
+  }
 };
 
-class Client {
+const Client = function() {
 
-  static search(params, callback) {
-    let query = this.where(params);
-    query.execute(function(error, results){
-      callback(error, results);
-    });
-  }
-
-  static getClientRquests(params, callback) {
-    let ClientRequest = require('./client_request');
-    let client_requests = [];
-    this.search(params, function(error, clients) {
-      async.forEachOf(clients, function(client, key, callback) {
-          ClientRequest.getRequestsByClient(client.id, function(error, requests){
-            client.requests = requests;
-            client_requests[key] = client;
-            callback();
-          });
-      }, function(error){
-        if (error) console.error(err.message);
-        callback(error, client_requests);
-      });
-    });
-  }
-}
+};
 
 module.exports = new Model(Client, schema);
